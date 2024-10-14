@@ -1,4 +1,4 @@
-package getRequest;
+package getRequests;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -56,7 +56,7 @@ public class Get02 {
         String responseBodyStr = response.asString();
         System.out.println("responseBodyStr= " + responseBodyStr);
         assertTrue(responseBodyStr.contains("Not Found"));
-        
+
         //    And
         //        Assert that in the Headers, Via is "1.1 vegur".
         System.out.println(response.getHeaders());

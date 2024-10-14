@@ -1,4 +1,4 @@
-package get01;
+package getRequests;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -61,6 +61,33 @@ For now, we will ignore this step.
     And
         Assert that Status Line is "HTTP/1.1 200 OK"
 
+        Şimdiye kadar API testi için Postman'e farklı dokümanlara sahip farklı http istekleri gönderdik.
+        Piyasada POSTMAN'ı genellikle otomasyon için değil, manuel bir API test aracı olarak kullanıyoruz.
+        Ancak daha önce oturumlarımızda öğrendiğimiz gibi, POSTMAN API test otomasyonu için de kullanılabilir.
+        Bundan sonra API test otomasyonu için RestAssured Kütüphanesini kullanacağız.
+        Test yapabilmek için bir dokümana ihtiyacınız var.
+        Biz Test Mühendisleri olarak http req'lerini nasıl kullanacağımızı ve API testlerimizi nasıl yapacağımızı uygulayabiliriz.
+        Bunun yanında dokümanları takip ederek test case ve senaryoları oluşturabiliriz. Tıpkı UI'yi takip edip test senaryoları oluşturduğumuz gibi
+        ve bu test senaryolarını Selenium Web UI'da çalıştırın.
+        Test Vakası:
+         --> Beklenen Sonuç // TEST DURUMU
+         ---> Gerçek Sonuç ====>>>>> API'den gelen yanıttan alacağım
+        Gherkin Lang.
+            Verilen ---> Testin ön koşulu
+            Ne zaman ---> Eylem
+            O zaman ---> İddia
+            Ve ---> bir önceki eylemin etkisinin devam ettiğini gösterir
+    Verilen
+        https://restful-booker.herokuapp.com/booking/7
+    Ne zaman
+        Kullanıcı GET İsteği gönderir
+    O zaman
+        Durum Kodunun "200" olduğunu doğrulayın
+    Ve
+        İçerik Türünün "application/json" içinde olduğunu doğrulayın
+    Ve
+        Durum Satırının "HTTP/1.1 200 OK" olduğunu doğrulayın
+
      */
 @Test
     public void userDataCheck(){
@@ -75,7 +102,7 @@ String URL= "https://restful-booker.herokuapp.com/booking/7";
 //        https://restful-booker.herokuapp.com/booking/7
 //    When
 //        User sends GET Request
-  Response response=  given().when().get(URL);
+  Response response=  given().when()/*->action*/.get(URL);
 
 //Assert that Status Code is "200"
     response.then().assertThat().statusCode(200);
@@ -90,7 +117,7 @@ String URL= "https://restful-booker.herokuapp.com/booking/7";
 
     //sadece status code veya content type yazdırmak için
     System.out.println("Response= "+response.getStatusCode()); //datayı parça parça almak için
-    System.out.println("Content type= "+response.contentType());
+    System.out.println("Content type= "+response.getContentType());
 
     //response time yazdırmak için
     System.out.println("Time= " + response.getTime());
