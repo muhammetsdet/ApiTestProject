@@ -18,7 +18,7 @@ public class Get08 extends JsonPlaceHolderBaseURL {
         When
             User Sends Request with GET Method
         Then
-            Assert that Status Code is "200"
+            Assert that Status Code is "200"0,,,
         And
             Assert that the Server is cloudflare in the Header
         And

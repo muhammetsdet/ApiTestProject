@@ -1,7 +1,17 @@
 package getRequests;
 
 import baseURL.DummyRestApiBaseURL;
+import io.restassured.response.Response;
+import org.hamcrest.Matcher;
 import org.junit.Test;
+import testData.DummyRestApiTestData;
+
+import java.util.List;
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItems;
 
 public class Get09 extends DummyRestApiBaseURL {
 
@@ -30,7 +40,25 @@ public class Get09 extends DummyRestApiBaseURL {
 
 //2- Set the expected data --> Başka bir classta expected dataları setleyelim
 
+        DummyRestApiTestData dummyRestApiTestData = new DummyRestApiTestData();
+        List<Map<String,Object>> expectedData= dummyRestApiTestData.serUpTestData();
 
+        System.out.println("expectedData = " + expectedData);
+
+        //Send the request
+
+        Response response= given().spec(specification).when().get("/{employeePath}");
+        response.prettyPrint();
+
+        //Do the assertion
+
+        response.then().statusCode((Integer) expectedData.get(0).get("StatusCode")).
+                body("data[-1].employee_name", equalTo(expectedData.get(1).get("employee_name")),
+                        "data[5].employee_salary", equalTo(expectedData.get(2).get("employee_salary")),
+                        "data.employee_age", hasItems(
+                                ((List)expectedData.get(3).get("EmployeeAges")).get(0),
+                                ((List)expectedData.get(3).get("EmployeeAges")).get(1),
+                                ((List)expectedData.get(3).get("EmployeeAges")).get(2)));
 
 
     }

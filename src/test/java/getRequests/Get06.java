@@ -73,7 +73,7 @@ public class Get06 extends DummyRestApiBaseURL {
                 Assert that there are 7 ids greater than 17.
          */
 
-    List<Integer> idList= jsonPath.getList("data.findAll{(it.id)>17}.id");
+    List<Integer> idList= jsonPath.getList("data.findAll{(it.id)>17}.id"); //Groovy language
     System.out.println("idList = " + idList);
 
 
@@ -84,7 +84,7 @@ public class Get06 extends DummyRestApiBaseURL {
         Assert that Doris Wilder is one of them.
         */
 
-    List<Integer> salaryList= jsonPath.getList("data.findAll{(it.employee_salary)<100000}.employee_name");
+    List<Integer> salaryList= jsonPath.getList("data.findAll{(it.employee_salary)<100000}.employee_name"); //Groovy language
     System.out.println("salaryList = " + salaryList);
 
     assertTrue(salaryList.contains("Doris Wilder"));

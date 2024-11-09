@@ -31,7 +31,8 @@ And
 
         //Send the Request
 
-        Response response= given().spec(specification).when().get("/{usersPath}");
+        Response response= given().spec(specification)/*spec methodu içinde specifibation objesi kullanıldı. given ile kullanılanı işaret ediyor*/
+                .when().get("/{usersPath}");
         response.prettyPrint();
 
         //Get the response and do assertion

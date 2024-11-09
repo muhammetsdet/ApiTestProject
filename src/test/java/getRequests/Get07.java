@@ -82,7 +82,11 @@ public class Get07 extends SwapiApiBaseURL {
                 }
 
 
+
      */
+
+
+
     /*
      1-Set the URL
      2-Set the expected data
@@ -98,7 +102,7 @@ public class Get07 extends SwapiApiBaseURL {
         specification.pathParams("vehiclesPath", "vehicles",
                 "idPath", "4");
 
-        // 2-Set the expected data --> Her zaman iceriden (en gomulu data yapısından) olusturarak
+        // 2-Set the expected data --> Her zaman iceriden (en gömulu data yapısından) olusturarak
         /*
         "films": [
                         "https://swapi.dev/api/films/1/",
@@ -130,6 +134,7 @@ public class Get07 extends SwapiApiBaseURL {
             "edited": "2014-12-20T21:30:21.661000Z",
             "url": "https://swapi.dev/api/vehicles/4/"
          */
+
         Map<String, Object> expectedDataMap = new HashMap<>();
         expectedDataMap.put("name", "Sand Crawler");
         expectedDataMap.put("model", "Digger Crawler");
@@ -181,16 +186,18 @@ public class Get07 extends SwapiApiBaseURL {
 
         //2. way: By using GSON --> From Json to Java --> Deserialization
 
-        Map<String, Object> actualData = response.as(HashMap.class);
+        Map<String, Object> actualData = response.as(HashMap.class)/* -> gelen response'u hasMap class objesi gibi oku demek. */;
         System.out.println("actualData = " + actualData);
 
 
-        //assertEquals(expectedDataMap.get("name"), actualData.get("name")); //Diye devam edilerek yazılabilir
+        //assertEquals(expectedDataMap.get("name"), actualData.get("name")); //Diye devam edilerek yazılabilir. Diğer bir uzun çözümü
 
         assertEquals(expectedDataMap, actualData);
 
 
         //JsonPath ile SoftAssert kullanarak çözümü yapınız
+
+
 
 
     }
