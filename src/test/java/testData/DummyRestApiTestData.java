@@ -21,7 +21,7 @@ public class DummyRestApiTestData {
 
 public List<Map<String,Object>> expectedDataList = new ArrayList<>();
 
-public List<Map<String,Object>> serUpTestData(){
+public List<Map<String,Object>> setUpTestData(){
     //1. ExpectedDataStatusCode Setleme
     HashMap<String,Object> expectedDataStatusCode= new HashMap<>();
 

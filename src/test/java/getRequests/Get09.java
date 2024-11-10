@@ -41,7 +41,7 @@ public class Get09 extends DummyRestApiBaseURL {
 //2- Set the expected data --> Başka bir classta expected dataları setleyelim
 
         DummyRestApiTestData dummyRestApiTestData = new DummyRestApiTestData();
-        List<Map<String,Object>> expectedData= dummyRestApiTestData.serUpTestData();
+        List<Map<String,Object>> expectedData= dummyRestApiTestData.setUpTestData();
 
         System.out.println("expectedData = " + expectedData);
 
@@ -62,7 +62,4 @@ public class Get09 extends DummyRestApiBaseURL {
 
 
     }
-
-
-
 }
