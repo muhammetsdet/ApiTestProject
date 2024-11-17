@@ -25,11 +25,11 @@ public class Get11 extends GoRestApiBaseURL {
             Verify that the response body is like this
 
                 {
-        "id": 7511416,
-        "name": "Msgr. Chaturbhuj Bhat",
-        "email": "bhat_msgr_chaturbhuj@skiles.example",
+       "id": 7527451,
+        "name": "Tanirika Johar",
+        "email": "johar_tanirika@okeefe.example",
         "gender": "female",
-        "status": "active"
+        "status": "inactive"
     }
 
   */
@@ -38,15 +38,15 @@ public class Get11 extends GoRestApiBaseURL {
     public void get11(){
 
         //Set the URL
-        specification.pathParams("usersPath", "users", "idPath", "7511416");
+        specification.pathParams("usersPath", "users", "idPath", "7527451");
 
         //Set the expected Data
-        String expectedData= "  {\n" +
-                "        \"id\": 7511416,\n" +
-                "        \"name\": \"Msgr. Chaturbhuj Bhat\",\n" +
-                "        \"email\": \"bhat_msgr_chaturbhuj@skiles.example\",\n" +
+        String expectedData= " {\n" +
+                "       \"id\": 7527451,\n" +
+                "        \"name\": \"Tanirika Johar\",\n" +
+                "        \"email\": \"johar_tanirika@okeefe.example\",\n" +
                 "        \"gender\": \"female\",\n" +
-                "        \"status\": \"active\"\n" +
+                "        \"status\": \"inactive\"\n" +
                 "    }";
         System.out.println("expectedData = " + expectedData);
 
@@ -80,7 +80,6 @@ public class Get11 extends GoRestApiBaseURL {
 
         assertEquals(expectedDataMap.get("id"), actualDataMap.get("id"));
         assertEquals(expectedDataMap, actualDataMap);
-
 
 
 
