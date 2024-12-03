@@ -32,6 +32,14 @@ Actual Result
     Eğer değilse @JsonIgnoreProperties(ignoreUnknown = true) annotaion ı kullanmayalım. Fakat her ne kadar bunun ile aynı omayan key leri ignore ediyor olsamda
     bazen tam olarak çevirmyebilr. Bu noktada çeşitli yöntemler ile doğru dataı set lemeni gerekmektedir.
     Ex: <<PojoClasName>> = response.as(<<PojoClasName>>.class)
+    -->//JsonPath response içerisinde gezinmemizi sağlar.
+    -->Javada class'lar küçük harfle olmaz
+    -->Decoder sitesi şifre çözücü olarak kullanılabilri.
+    -->
+    -->
+    -->
+    -->
+    -->
 
 
  */
